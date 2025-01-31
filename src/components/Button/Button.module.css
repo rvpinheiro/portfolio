@@ -1,5 +1,28 @@
 .button {
-    color: white;
-    border: 1px solid white;
-    padding: 10px 20px;
-  }
+  border: 1px solid var(--text-white);
+  border-radius: 5px;
+  padding: 3px 25px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-family: var(--font-bold);
+  margin-top: 1rem;
+  background-color: transparent;
+  color: var(--text-white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: auto; 
+  display: block; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+.button:hover {
+  background-color: var(--text-white);
+  color: var(--text-black);
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:focus {
+  outline: none;
+}

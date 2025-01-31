@@ -1,6 +1,6 @@
 .navMenu {
     position: fixed;
-    top: 20px;             
+    top: 20px;
     background-color: transparent;
     z-index: 10;
 }
@@ -9,8 +9,8 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-    display: flex;          
-    gap: 40px;              
+    display: flex;
+    gap: 40px;
 }
 
 .navMenu .navItem {
@@ -18,11 +18,28 @@
     font-size: 2rem;
 }
 
-.navMenu button {
+.navMenu a {
     background: transparent;
-    border: none;
-    color: #fff;            
-    font-size: 1.5rem;      
-    font-family: var(--font-regular); 
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: var(--font-regular);
     cursor: pointer;
+    text-decoration: none;
+    transition: all 0.5s ease; 
+}
+
+.navMenu .activeLink {
+    font-family: var(--font-semibold);
+    color: red;         
+    transform: scale(1.1); 
+    transition: all 0.5s ease;  
+}
+
+.navMenu a:hover {
+    transform: scale(1.1);
+    color: var(--text-red);
+}
+
+.navMenu a:focus {
+    outline: none;  
 }

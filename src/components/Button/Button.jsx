@@ -1,12 +1,13 @@
-import React from 'react'
-import styles from './Button.module.css'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './Button.module.css';
 
-const Button = ({ label, onClick }) => {
+const Button = ({ label, to }) => {
     return (
-        <button className={styles.button} onClick={onClick}>
+        <Link to={to} className={styles.button}>
             {label}
-        </button>
-    )
+        </Link>
+    );
 }
 
-export default Button
+export default Button;

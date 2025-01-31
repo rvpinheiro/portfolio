@@ -1,12 +1,19 @@
 :root {
-    --font-regular: 'Amatic SC', sans-serif;
-    --font-bold: 'Amatic SC', sans-serif;
+  --font-light: 'Quicksand-Light', sans-serif;
+  --font-regular: 'Quicksand-Regular', sans-serif;
+  --font-medium: 'Quicksand-Medium', sans-serif;
+  --font-semibold: 'Quicksand-SemiBold', sans-serif;
+  --font-bold: 'Quicksand-Bold', sans-serif;
 
-    --bg-primary: #212529;   
-    --bg-secondary: #343a40; 
+  /* Cores principais */
+  --text-white: #ffffff;       
+  --text-red: #db0000;         
+  --text-whine: #831010;
+  --text-black: #000000;
+  
+  --bg-black: #000000;         
+  --bg-gray-light: #b3b3b3;    
+  --bg-gray-dark: #564d4d;    
 
-    --text-primary: #f8f9fa;  
-    --title: #e9ecef; 
-    
-    --border-light: #ced4da; 
-  }
+  --highlight-color: #db0000;  
+}

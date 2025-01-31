@@ -3,23 +3,27 @@ import NavMenu from './components/NavMenu/NavMenu';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Home from './pages/Home';
+import About from './pages/About'
 import Gallery from './pages/Gallery';
+import Skills from './pages/Skills';
+import Contact from './pages/Contact'
 
 function App() {
   const routes = [
     { path: '/', label: 'home', component: <Home /> },
+    { path: '/about', label: 'about', component: <About /> },
     { path: '/gallery', label: 'gallery', component: <Gallery /> },
+    { path: '/skills', label: 'skills', component: <Skills /> },
+    { path: '/contact', label: 'contact', component: <Contact /> },
 
   ];
 
   return (
     <Router>
       <div className="appContainer">
-        {/* Passa a lista de rotas para o NavMenu */}
         <NavMenu routes={routes} />
         <div className="mainContent">
           <Routes>
-            {/* Mapeia as rotas dinamicamente */}
             {routes.map(({ path, component }) => (
               <Route key={path} path={path} element={component} />
             ))}

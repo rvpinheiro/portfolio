@@ -1,12 +1,13 @@
   .title {
-    font-size: 8rem; 
-    font-weight: 700;
-    color: var(--text-primary);
+    font-size: 10rem;
+    font-family: var(--font-semibold);
+    text-transform: uppercase;
   }
   
   .subtitle {
-    font-size: 4rem; 
+    font-size: 2rem; 
+    font-family: var(--font-semibold);
     text-transform: uppercase;
-    color: var(--text-secondary); 
+    color: var(--text-red)
   }
   

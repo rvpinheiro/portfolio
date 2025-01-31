@@ -39,6 +39,6 @@
 
 body {
     font-family: 'Quicksand-Regular', sans-serif;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
+    background-color: var(--bg-black);
+    color: var(--text-white);
 }
