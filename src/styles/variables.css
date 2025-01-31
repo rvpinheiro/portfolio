@@ -1,4 +1,7 @@
 :root {
+    --font-regular: 'Amatic SC', sans-serif;
+    --font-bold: 'Amatic SC', sans-serif;
+
     --bg-primary: #212529;   
     --bg-secondary: #343a40; 
 

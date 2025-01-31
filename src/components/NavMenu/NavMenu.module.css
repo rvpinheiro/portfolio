@@ -1,0 +1,28 @@
+.navMenu {
+    position: fixed;
+    top: 20px;             
+    background-color: transparent;
+    z-index: 10;
+}
+
+.navMenu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;          
+    gap: 40px;              
+}
+
+.navMenu .navItem {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.navMenu button {
+    background: transparent;
+    border: none;
+    color: #fff;            
+    font-size: 1.5rem;      
+    font-family: var(--font-regular); 
+    cursor: pointer;
+}
