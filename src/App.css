@@ -4,5 +4,14 @@
   justify-content: center; 
   align-items: center;     
   height: 100vh;           
-  text-align: center;      
+  text-align: center;    
 }
+
+.mainContent {
+  width: 80vw; 
+  height: 70vh;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
