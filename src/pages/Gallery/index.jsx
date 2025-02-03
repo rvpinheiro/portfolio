@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from './Gallery.module.css'
+import GalleryGrid from '../../components/GalleryGrid/GalleryGrid';
 
 const Gallery = () => {
     return (
-        <div>Gallery</div>
+        <div><GalleryGrid /></div>
     )
 }
 
