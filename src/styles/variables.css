@@ -14,6 +14,8 @@
   --bg-black: #000000;         
   --bg-gray-light: #b3b3b3;    
   --bg-gray-dark: #564d4d;    
+  --bg-sucess: #4caf50;
+  --bg-error: #f44336;
 
   --highlight-color: #db0000;  
 }

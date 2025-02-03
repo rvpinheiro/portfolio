@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Button.module.css';
 
-const Button = ({ label, to }) => {
+const Button = ({ label, type, onClick }) => {
     return (
-        <Link to={to} className={styles.button}>
+        <button type={type || 'button'} className={styles.button} onClick={onClick}>
             {label}
-        </Link>
+        </button>
     );
 }
 
