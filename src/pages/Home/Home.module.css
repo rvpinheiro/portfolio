@@ -1,0 +1,18 @@
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    height: 70vh;
+    position: relative;
+}
+
+.socialContainer {
+    display: flex;
+}
+
+.buttonsContainer {
+    display: flex;
+    gap: 20px;
+}

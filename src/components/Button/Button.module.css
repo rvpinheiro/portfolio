@@ -1,28 +1,44 @@
 .button {
-  border: 1px solid var(--text-white);
-  border-radius: 5px;
-  padding: 3px 25px;
-  font-size: 1rem;
-  text-transform: uppercase;
-  font-family: var(--font-bold);
-  margin-top: 1rem;
-  background-color: transparent;
-  color: var(--text-white);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: auto; 
-  display: block; 
-  margin-left: auto; 
-  margin-right: auto; 
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.secondary {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.tertiary {
+    background-color: transparent;
+    color: #0073e6;
+    border: 1px solid #0073e6;
 }
 
 .button:hover {
-  background-color: var(--text-white);
-  color: var(--text-black);
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+    opacity: 0.8;
 }
 
-.button:focus {
-  outline: none;
+
+.small {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+}
+
+.medium {
+    font-size: 1rem;
+    padding: 12px 24px;
+}
+
+.large {
+    font-size: 1.2rem;
+    padding: 16px 32px;
 }

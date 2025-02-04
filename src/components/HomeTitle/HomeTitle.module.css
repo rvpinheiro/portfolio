@@ -1,0 +1,29 @@
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.greeting {
+    font-size: 4rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: var(--font-heavy);
+}
+
+.subtitleOne {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-gray);
+}
+
+.subtitleTwo {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-gray);
+    /* display: none; */
+}
+

@@ -77,7 +77,12 @@ const Contact = () => {
                             required
                         ></textarea>
                     </div>
-                    <Button label="Send" type="submit" />
+                    <Button
+                        text="Send"
+                        styleType="secondary"
+                        size="medium"
+                        type="submit"
+                    />
                 </form>
 
                 {toast && (

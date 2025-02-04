@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './Button.module.css';
 
-const Button = ({ label, type, onClick }) => {
+const Button = ({ text, onClick, styleType, size }) => {
+    const buttonClass = `${styles.button} ${styles[styleType]} ${styles[size]}`;
+
     return (
-        <button type={type || 'button'} className={styles.button} onClick={onClick}>
-            {label}
+        <button className={buttonClass} onClick={onClick}>
+            {text}
         </button>
     );
-}
+};
 
 export default Button;

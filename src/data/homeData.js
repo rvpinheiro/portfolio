@@ -1,8 +1,15 @@
 const homeData = {
-    quote: {
-        title: "Once a new technology rolls over you, if you're not part of the steamroller, you're part of the road.",
-        author: "Stewart Brand"
+    bio: {
+        greeting: "Hello World, I'm Rui Pinheiro",
+        subtitleOne: "I'm a Front-End Developer, passionate about creating intuitive and...",
+        subtitleTwo: 'Here is where people would say "I\'m a developer", but I\'m going to do something a little different.',
     },
+    socialLinks: [
+        { platform: "github", link: "https://www.github.com", hoverColor: "#AC69DC" },
+        { platform: "linkedin", link: "https://www.linkedin.com", hoverColor: "#0077b5" },
+        { platform: "mail", link: "/contact", hoverColor: "#d14836" },
+        { platform: "download", link: "/cv.pdf", hoverColor: "#4CAF50" },
+    ],
 };
 
 export default homeData;
