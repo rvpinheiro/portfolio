@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Typewriter from 'typewriter-effect';
-import styles from './Codebox.module.css';
+import styles from './CodeBox.module.css';
 import homeData from '../../data/homeData';
 
 const CodeBox = () => {
