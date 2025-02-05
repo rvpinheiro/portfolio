@@ -1,0 +1,24 @@
+.aboutContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    height: 70vh;
+    position: relative;
+    width: 80vw;
+}
+
+.timelineContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    position: relative;
+}
+.buttonsContainer {
+    display: flex;
+    gap: 20px;
+    margin-top: 2rem;
+}
