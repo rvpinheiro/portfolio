@@ -3,7 +3,7 @@ import Typewriter from 'typewriter-effect';
 import styles from './Codebox.module.css';
 import homeData from '../../data/homeData';
 
-const Codebox = () => {
+const CodeBox = () => {
     const [currentCodeIndex, setCurrentCodeIndex] = useState(0);
 
     useEffect(() => {
@@ -36,4 +36,4 @@ const Codebox = () => {
     );
 };
 
-export default Codebox;
+export default CodeBox;
