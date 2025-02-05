@@ -15,14 +15,14 @@
 .subtitleOne {
     margin-top: 1.5rem;
     font-size: 1.5rem;
-    font-weight: 300;
+    font-family: var(--font-light);
     color: var(--text-gray);
 }
 
 .subtitleTwo {
     margin-top: 1.5rem;
     font-size: 1.5rem;
-    font-weight: 300;
+    font-family: var(--font-light);
     color: var(--text-gray);
     /* display: none; */
 }

@@ -7,8 +7,8 @@ const HomeTitle = () => {
         <div className={styles.mainContainer}>
             <div className={styles.nameContainer}>
                 <p className={styles.greeting}>{homeData.bio.greeting}</p>
-                <h1 className={styles.subtitleOne}>{homeData.bio.subtitleOne}</h1>
-                <h1 className={styles.subtitleTwo}>{homeData.bio.subtitleTwo}</h1>
+                <h2 className={styles.subtitleOne}>{homeData.bio.subtitleOne}</h2>
+                <h2 className={styles.subtitleTwo}>{homeData.bio.subtitleTwo}</h2>
             </div>
         </div>
     );

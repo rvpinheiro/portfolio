@@ -4,12 +4,14 @@ import HomeTitle from '../../components/HomeTitle/HomeTitle';
 import Button from '../../components/Button/Button';
 import SocialIcon from '../../components/SocialIcon/SocialIcon';
 import homeData from '../../data/homeData';
+import CodeBox from '../../components/CodeBox/CodeBox';
 
 const Home = () => {
     return (
         <div className={styles.mainContent}>
             <div className={styles.homeContainer}>
                 <HomeTitle />
+                <CodeBox />
                 <div className={styles.buttonsContainer}>
                     <Button
                         text="Check my work"
