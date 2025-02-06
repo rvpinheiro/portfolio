@@ -37,7 +37,7 @@
     width: 100%;
     padding: 15px;
     border-radius: 8px;
-    border: 1px solid var(--bg-gray-dark);
+    border: 1px solid white;
     background-color: var(--bg-dark); 
     color: var(--text-white);
     font-size: 16px;
@@ -92,6 +92,12 @@
 .error {
     background-color: #f44336;
     color: var(--text-white);
+}
+
+.socialContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
 @keyframes fadeInOut {

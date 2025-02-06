@@ -3,7 +3,7 @@ import styles from './Home.module.css';
 import HomeTitle from '../../components/HomeTitle/HomeTitle';
 import Button from '../../components/Button/Button';
 import SocialIcon from '../../components/SocialIcon/SocialIcon';
-import homeData from '../../data/homeData';
+import socialData from '../../data/socialData';
 import CodeBox from '../../components/CodeBox/CodeBox';
 
 const Home = () => {
@@ -27,7 +27,7 @@ const Home = () => {
                     />
                 </div>
                 <div className={styles.socialContainer}>
-                    {homeData.socialLinks.map((social, index) => (
+                    {socialData.socialLinks.map((social, index) => (
                         <SocialIcon
                             key={index}
                             platform={social.platform}

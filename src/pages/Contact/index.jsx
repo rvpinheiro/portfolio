@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styles from './Contact.module.css';
-import { FaEnvelope } from 'react-icons/fa';
 import Button from '../../components/Button/Button';
+import SocialIcon from '../../components/SocialIcon/SocialIcon';
+import socialData from '../../data/socialData';
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
@@ -44,7 +45,6 @@ const Contact = () => {
         <div className={styles.contactContainer}>
             <div className={styles.contactForm}>
                 <h2 className={styles.contactTitle}>Get in touch!</h2>
-                <FaEnvelope className={styles.icon} />
                 <form onSubmit={sendEmail}>
                     <div className={styles.formRow}>
                         <div className={styles.formGroup}>
@@ -84,6 +84,16 @@ const Contact = () => {
                         type="submit"
                     />
                 </form>
+                <div className={styles.socialContainer}>
+                    {socialData.socialLinks.map((social, index) => (
+                        <SocialIcon
+                            key={index}
+                            platform={social.platform}
+                            link={social.link}
+                            hoverColor={social.hoverColor}
+                        />
+                    ))}
+                </div>
 
                 {toast && (
                     <div className={`${styles.toast} ${toast.type === 'success' ? styles.success : styles.error}`}>

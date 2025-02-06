@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './WorksTimeline.module.css';
 import jobsData from '../../data/jobsData';
-import { FaRegArrowAltCircleLeft, FaRegArrowAltCircleRight } from 'react-icons/fa';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const WorksTimeline = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
@@ -18,13 +18,13 @@ const WorksTimeline = () => {
                     className={`${styles.arrow} ${styles.left} ${selectedIndex === 0 ? styles.hidden : ''}`}
                     onClick={() => selectedIndex > 0 && setSelectedIndex(selectedIndex - 1)}
                 >
-                    <FaRegArrowAltCircleLeft size={30} color="#fff" />
+                    <IoIosArrowBack size={30} color="#fff" />
                 </div>
                 <div
                     className={`${styles.arrow} ${styles.right} ${selectedIndex === jobsData.length - 1 ? styles.hidden : ''}`}
                     onClick={() => selectedIndex < jobsData.length - 1 && setSelectedIndex(selectedIndex + 1)}
                 >
-                    <FaRegArrowAltCircleRight size={30} color="#fff" />
+                    <IoIosArrowForward size={30} color="#fff" />
                 </div>
             </div>
             <div className={styles.outerBox}>

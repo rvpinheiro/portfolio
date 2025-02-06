@@ -5,13 +5,7 @@ const homeData = {
         subtitleTwo: 'Here is where people would say "I\'m a developer", but I\'m going to do something a little different.',
     },
     codeBlocks: [
-        `import React, { useState } from 'react';\n\nconst Button = ({ text, onClick }) => {\n  const [isVisible, setIsVisible] = useState(false);`
-    ],
-    socialLinks: [
-        { platform: "github", link: "https://www.github.com", hoverColor: "#AC69DC" },
-        { platform: "linkedin", link: "https://www.linkedin.com", hoverColor: "#0077b5" },
-        { platform: "mail", link: "/contact", hoverColor: "#d14836" },
-        { platform: "download", link: "/cv.pdf", hoverColor: "#4CAF50" },
+        `const Button = ({ text, onClick }) => {\n  const [isVisible, setIsVisible] = useState(false);`
     ],
 };
 
