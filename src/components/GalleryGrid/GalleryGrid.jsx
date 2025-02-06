@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./GalleryGrid.module.css";
-import projects from "../../data/projects";
+import projectsData from "../../data/projectsData";
 
 const GalleryGrid = () => {
     return (
         <div className={styles.grid}>
-            {projects.map((project) => (
+            {projectsData.map((project) => (
                 <a
                     key={project.id}
                     href={project.link}

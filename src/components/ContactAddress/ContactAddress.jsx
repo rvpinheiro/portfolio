@@ -21,6 +21,7 @@ const ContactAddress = () => {
                         platform={social.platform}
                         link={social.link}
                         hoverColor={social.hoverColor}
+                        size={25}
                     />
                 ))}
             </div>

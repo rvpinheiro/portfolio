@@ -2,7 +2,7 @@ import React from 'react';
 import { GitHub, Linkedin, Mail, Download } from 'react-feather';
 import styles from './SocialIcon.module.css';
 
-const SocialIcon = ({ platform, link, hoverColor }) => {
+const SocialIcon = ({ platform, link, hoverColor, size }) => {
     let IconComponent;
 
     switch (platform) {
@@ -25,7 +25,7 @@ const SocialIcon = ({ platform, link, hoverColor }) => {
     return (
         <a href={link} target="_blank" rel="noopener noreferrer" className={styles.iconContainer}>
             <div className={styles.iconBox} style={{ color: hoverColor }}>
-                <IconComponent size={30} className={styles.icon} />
+                <IconComponent size={size || 30} className={styles.icon} />
             </div>
         </a>
     );
