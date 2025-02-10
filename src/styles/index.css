@@ -2,14 +2,8 @@
 @import './variables.css';
 
 @font-face {
-    font-family: 'UniSans-Heavy';
-    src: url('/fonts/UniSans-Heavy.otf') format('truetype');
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Consolas';
-    src: url('/fonts/Consolas.otf') format('truetype');
+    font-family: 'Gobold-Regular';
+    src: url('/fonts/Gobold-Regular.otf') format('truetype');
     font-style: normal;
 }
 

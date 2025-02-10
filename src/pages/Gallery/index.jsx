@@ -3,7 +3,9 @@ import GalleryGrid from '../../components/GalleryGrid/GalleryGrid';
 
 const Gallery = () => {
     return (
-        <div><GalleryGrid /></div>
+        <div className={styles.galleryContainer}>
+            <GalleryGrid />
+        </div>
     )
 }
 

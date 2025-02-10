@@ -4,15 +4,14 @@
   --font-medium: 'Quicksand-Medium', sans-serif;
   --font-semibold: 'Quicksand-SemiBold', sans-serif;
   --font-bold: 'Quicksand-Bold', sans-serif;
-  --font-heavy: 'UniSans-Heavy', sans-serif;
-  --font-consolas: 'Consolas', sans-serif;
+  --font-title: 'Gobold-Regular', sans-serif;
 
   /* Cores principais */
   --text-white: #ffffff;       
   --text-red: #db0000;         
   --text-whine: #831010;
   --text-black: #000000;
-  --text-gray:rgb(183, 181, 181);
+  --text-gray: rgb(183, 181, 181);
   
   --bg-black: #000000;         
   --bg-gray-light: #b3b3b3;    
