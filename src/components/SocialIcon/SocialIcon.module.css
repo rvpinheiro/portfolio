@@ -1,11 +1,11 @@
 .iconContainer {
-  margin: 0 15px;
+  margin: 0 1rem;
   text-decoration: none;
 }
 
 .iconBox {
-  width: 50px;
-  height: 60px;
+  width: clamp(25px, 4vw, 60px); 
+  height: clamp(25px, 4vw, 60px);
   border-radius: 12px;
   display: flex;
   justify-content: center;
@@ -23,9 +23,9 @@
 .iconBox:hover .icon {
   transform: rotate(45deg);
   opacity: 0.9;
-  color: inherit; 
+  color: inherit;
 }
 
 .iconBox:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }

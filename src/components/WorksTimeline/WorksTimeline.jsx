@@ -46,7 +46,7 @@ const WorksTimeline = () => {
                         onMouseLeave={() => setHoveredIndex(null)}
                     >
                         <span className={styles.date}>{item.date}</span>
-                        {hoveredIndex === index && (
+                        {selectedIndex === index && (
                             <div className={styles.popup}>
                                 <div className={styles.arrowUp}></div>
                                 <span>{jobsData[index].title}</span>
@@ -54,6 +54,7 @@ const WorksTimeline = () => {
                         )}
                     </div>
                 ))}
+
             </div>
         </div>
     );

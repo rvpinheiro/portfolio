@@ -1,21 +1,22 @@
 .timelineContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 80vw;
+    justify-content: space-evenly;
+    width: 85vw;
+    height: 85vh;
     perspective: 1000px;
     position: relative;
+    margin: 0 auto; 
 }
 
-.outerBox { 
+.outerBox {
     padding: 20px;
     background-color: transparent;
     border-radius: 10px;
     border: 1px solid white;
     width: 50%;
     height: 350px;
-    margin-bottom: 8rem;
     transform: rotateY(15deg);
     transition: transform 0.5s ease;
     position: relative;
@@ -36,17 +37,13 @@
     transform: rotateY(-10deg);
     position: absolute;
     background: black;
-    right: -3rem;
-    bottom: -3rem;
 }
 
 .contentText {
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-align: left;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    overflow-y: auto;
+    padding: 20px;
+    text-align: justify;
 }
 
 .arrowContainer {
@@ -75,7 +72,6 @@
     right: calc(18% - 10px);
 }
 
-
 .hidden {
     display: none; 
 }
@@ -84,7 +80,7 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    width: 60%;
+    width: 65%;
 }
 
 .timelineLine {
@@ -93,7 +89,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #fff;
+    background-color: var(--text-white);
     z-index: -1;
 }
 
@@ -119,6 +115,11 @@
     position: relative;
 }
 
+.timelinePoint.active .popup {
+    opacity: 1;
+    visibility: visible;
+}
+
 .timelinePoint.active::after {
     content: "";
     position: absolute;
@@ -136,7 +137,7 @@
     top: -30px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 16px;
+    font-size: 1rem;;
     font-weight: bold;
     color: #fff;
 }
@@ -159,7 +160,6 @@
     white-space: nowrap;
 }
 
-
 .timelinePoint:hover .popup {
     opacity: 1;
     visibility: visible;
@@ -175,4 +175,83 @@
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-bottom: 10px solid white;
+}
+
+::-webkit-scrollbar {
+    width: 8px; /* Fina, ajustável à largura desejada */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #333; /* Cor escura para a barra */
+    border-radius: 10px; /* Borda arredondada para um efeito mais moderno */
+    border: 2px solid #555; /* Borda mais clara para contraste */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #222; /* Cor de fundo da track (área da barra) */
+    border-radius: 10px;
+}
+
+@media (max-width: 1024px) {
+    .timelineContainer {
+        height: 100vh;
+        width: 90vw;
+    }
+    
+    .timeline {
+        width: 85%; 
+    }
+
+    .timelinePoint {
+        margin: 0 15px; 
+    }
+    .outerBox {
+        padding: 10px;
+        width: 100%;
+        height: 350px;
+    }
+    .content {
+        padding: 10px;
+    }
+
+    .contentText {
+        font-size: .9rem;
+        margin-bottom: .5rem;
+    }
+
+    .arrowContainer {
+        display: none;
+    }
+    .date {
+        font-size: .8rem;;
+    }
+    .popup {
+        position: absolute;
+        top: 50px;  
+        left: 50%;
+        padding: 5px 25px;
+        font-size: .6rem;
+        text-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: center;
+    }
+
+    .timelinePoint {
+        width: 25px;
+        height: 25px;
+        margin: 0 10px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .timelinePoint {
+        width: 20px; 
+        height: 20px;
+    }
 }

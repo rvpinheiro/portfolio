@@ -5,10 +5,11 @@
     text-align: center;
     background: black;
     border: 1px solid rgba(255, 255, 255, 0.3); 
+    width: 100%;
 }
 
 .contactTitle {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 .formRow {
@@ -49,4 +50,41 @@
 .formGroup textarea::placeholder {
     color: var(--text-white);
     opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+    .contactForm {
+        max-width: 80%; 
+    }
+
+    .formRow {
+        flex-direction: column; 
+        gap: 20px;
+    }
+
+    .formGroup textarea {
+        min-height: 120px;
+    }
+
+    .adressContainer {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .contactForm {
+        padding: 30px; 
+        max-width: 100%;
+    }
+
+    .formRow {
+        flex-direction: column;
+    }
+
+    .formGroup input,
+    .formGroup textarea {
+        padding: 12px;
+        font-size: 14px;
+    }
 }

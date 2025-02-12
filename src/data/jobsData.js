@@ -2,7 +2,7 @@ const jobsData = [
     {
         date: '2022',
         title: 'Lorem ipsum odor amet',
-        description: 'Lorem ipsum odor amet, consectetuer adipiscing elit. Purus egestas vitae purus litora urna lobortis sodales. Mauris erat leo donec netus nulla; ex nascetur pulvinar ac. Consequat interdum massa purus neque imperdiet mus natoque id sociosqu. Maecenas habitant nascetur class arcu et mattis dis. Sociosqu hac egestas tellus inceptos a. Ligula purus condimentum porta sodales ex hendrerit est.',
+        description: 'Lorem ipsum odor amet, consectetuer adipiscing elit. Purus egestas vitae purus litora urna lobortis sodales. Mauris erat leo donec netus nulla; ex nascetur pulvinar ac. Consequat interdum massa purus neque imperdiet mus natoque id sociosqu. Maecenas habitant nascetur class arcu et mattis dis. Sociosqu hac egestas tellus inceptos a. Ligula purus condimentum porta sodales ex hendrerit est Lorem ipsum odor amet, consectetuer adipiscing elit. Purus egestas vitae purus litora urna lobortis sodales. Mauris erat leo donec netus nulla; ex nascetur pulvinar ac. Consequat interdum massa purus neque imperdiet mus natoque id sociosqu. Maecenas habitant nascetur class arcu et mattis dis. Sociosqu hac egestas tellus inceptos a. Ligula purus condimentum porta sodales ex hendrerit estLorem ipsum odor amet, consectetuer adipiscing elit. Purus egestas vitae purus litora urna lobortis sodales. Mauris erat leo donec netus nulla; ex nascetur pulvinar ac. Consequat interdum massa purus neque imperdiet mus natoque id sociosqu. Maecenas habitant nascetur class arcu et mattis dis. Sociosqu hac egestas tellus inceptos a. Ligula purus condimentum porta sodales ex hendrerit est.',
         role: 'Junior Frontend Developer'
     },
     {
