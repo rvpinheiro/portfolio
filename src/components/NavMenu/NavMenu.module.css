@@ -1,10 +1,11 @@
 .navMenu {
-    position: fixed;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     background-color: transparent;
-    z-index: 10;
+    z-index: 999;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
 }
 
 .navMenu ul {
@@ -68,6 +69,7 @@
 }
 
 .hamburger {
+    display: none;
     background: transparent;
     border: none;
     font-size: 2rem;
@@ -125,6 +127,10 @@
     }
 
     .mobileHeader {
+        
+    }
+
+    .hamburger {
         display: flex;
     }
 }

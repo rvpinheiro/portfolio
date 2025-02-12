@@ -3,8 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    height: 100vh;
+    height: 85vh;
     width: 100vw;
     position: relative;
     background-image: url('/assets/images/wallpaper.jpg'); 
@@ -26,9 +25,6 @@
     border-radius: 50%; 
 }
 
-
 .socialContainer {
     display: flex;
-    position: absolute;
-    bottom: 5rem;
 }
