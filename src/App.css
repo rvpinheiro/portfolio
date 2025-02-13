@@ -12,3 +12,9 @@
   align-items: center;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+  height: 100vh;
+}
+
+

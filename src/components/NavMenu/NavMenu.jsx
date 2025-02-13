@@ -16,6 +16,14 @@ const NavMenu = ({ routes }) => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    useEffect(() => {
+        if (menuOpen) {
+            document.body.classList.add("overflow-hidden");
+        } else {
+            document.body.classList.remove("overflow-hidden");
+        }
+    }, [menuOpen]);
+
     return (
         <>
             <div className={styles.navMenu}>

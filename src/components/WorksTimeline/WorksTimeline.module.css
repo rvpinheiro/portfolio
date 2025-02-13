@@ -14,7 +14,7 @@
     padding: 20px;
     background-color: transparent;
     border-radius: 10px;
-    border: 1px solid white;
+    border: 1px solid var(--text-white);
     width: 50%;
     height: 350px;
     transform: rotateY(15deg);
@@ -26,7 +26,7 @@
 .content {
     padding: 30px;
     background-color: transparent;
-    border: 1px solid #ddd;
+    border: 1px solid var(--text-white);;
     width: 100%;
     height: 100%;
     display: flex;
@@ -128,7 +128,7 @@
     transform: translate(-50%, -50%);
     width: 15px;
     height: 15px;
-    background-color: red;
+    background-color: var(--text-red);
     border-radius: 50%;
 }
 
@@ -139,7 +139,7 @@
     transform: translateX(-50%);
     font-size: 1rem;;
     font-weight: bold;
-    color: #fff;
+    color: var(--text-white);
 }
 
 .popup {
@@ -147,7 +147,7 @@
     top: 50px;  
     left: 50%;
     transform: translateX(-50%);
-    background-color: white;
+    background-color: var(--text-white);
     color: black;
     padding: 10px 70px;
     border-radius: 5px;
@@ -178,17 +178,17 @@
 }
 
 ::-webkit-scrollbar {
-    width: 8px; /* Fina, ajustável à largura desejada */
+    width: 8px; 
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #333; /* Cor escura para a barra */
-    border-radius: 10px; /* Borda arredondada para um efeito mais moderno */
-    border: 2px solid #555; /* Borda mais clara para contraste */
+    background-color: #333; 
+    border-radius: 10px; 
+    border: 2px solid #555; 
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #222; /* Cor de fundo da track (área da barra) */
+    background-color: #222; 
     border-radius: 10px;
 }
 
