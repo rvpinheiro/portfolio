@@ -1,34 +1,46 @@
 import './App.css';
 import NavMenu from './components/NavMenu/NavMenu';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
+import { useTransition, animated, config } from '@react-spring/web';
 
 import Home from './pages/Home';
 import Gallery from './pages/Gallery';
 import About from './pages/About';
-import Contact from './pages/Contact'
+import Contact from './pages/Contact';
 
 function App() {
-  const routes = [
-    { path: '/', label: 'home', component: <Home /> },
-    { path: '/about', label: 'about', component: <About /> },
-    { path: '/gallery', label: 'gallery', component: <Gallery /> },
-    { path: '/contact', label: 'contact', component: <Contact /> },
+  const [activePage, setActivePage] = useState('home');
 
+  const routes = [
+    { key: 'home', label: 'home', component: <Home /> },
+    { key: 'about', label: 'about', component: <About /> },
+    { key: 'gallery', label: 'gallery', component: <Gallery /> },
+    { key: 'contact', label: 'contact', component: <Contact /> },
   ];
 
+  const transitions = useTransition(activePage, {
+    key: activePage,
+    from: { opacity: 0, transform: 'scale(0.5)' },
+    enter: { opacity: 1, transform: 'scale(1)' },
+    leave: { opacity: 0, transform: 'scale(0.5)' },
+    config: { ...config.easeInOut, duration: 350 },
+    exitBeforeEnter: true,
+  });
+
   return (
-    <Router>
-      <div className="appContainer">
-        <NavMenu routes={routes} />
-        <div className="mainContent">
-          <Routes>
-            {routes.map(({ path, component }) => (
-              <Route key={path} path={path} element={component} />
-            ))}
-          </Routes>
-        </div>
+    <div className="appContainer">
+      <NavMenu routes={routes} activePage={activePage} setActivePage={setActivePage} />
+      <div className="mainContent">
+        {transitions((style, item) => {
+          const page = routes.find(route => route.key === item);
+          return page ? (
+            <animated.div style={style}>
+              {page.component}
+            </animated.div>
+          ) : null;
+        })}
       </div>
-    </Router>
+    </div>
   );
 }
 

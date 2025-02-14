@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import styles from "./NavMenu.module.css";
 
-const NavMenu = ({ routes }) => {
+const NavMenu = ({ routes, setActivePage }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [activePage, setActivePageState] = useState('home');
 
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
         };
-
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
@@ -28,25 +27,23 @@ const NavMenu = ({ routes }) => {
         <>
             <div className={styles.navMenu}>
                 <ul>
-                    {routes.map(({ label, path }, index) => (
-                        <li key={index} className={styles.navItem}>
-                            <NavLink
-                                to={path}
-                                className={({ isActive }) =>
-                                    isActive ? styles.activeLink : undefined
-                                }
+                    {routes.map(({ key, label }) => (
+                        <li key={key} className={styles.navItem}>
+                            <button
+                                onClick={() => {
+                                    setActivePageState(key);
+                                    setActivePage(key);
+                                }}
+                                className={`${styles.navButton} ${activePage === key ? styles.activeButton : ""}`}
                             >
                                 {label}
-                            </NavLink>
+                            </button>
                         </li>
                     ))}
                 </ul>
             </div>
             <div className={`${styles.mobileHeader} ${isScrolled ? styles.scrolled : ""}`}>
-                <button
-                    className={styles.hamburger}
-                    onClick={() => setMenuOpen(true)}
-                >
+                <button className={styles.hamburger} onClick={() => setMenuOpen(true)}>
                     <FiMenu />
                 </button>
             </div>
@@ -56,14 +53,18 @@ const NavMenu = ({ routes }) => {
                         <FiX />
                     </button>
                     <ul>
-                        {routes.map(({ label, path }, index) => (
-                            <li key={index}>
-                                <NavLink
-                                    to={path}
-                                    onClick={() => setMenuOpen(false)}
+                        {routes.map(({ key, label }) => (
+                            <li key={key}>
+                                <button
+                                    onClick={() => {
+                                        setActivePageState(key);
+                                        setActivePage(key);
+                                        setMenuOpen(false);
+                                    }}
+                                    className={`${styles.navButton} ${activePage === key ? styles.activeButton : ""}`}
                                 >
                                     {label}
-                                </NavLink>
+                                </button>
                             </li>
                         ))}
                     </ul>
