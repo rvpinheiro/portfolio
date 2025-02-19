@@ -37,41 +37,38 @@ const WorksTimeline = () => {
 
     return (
         <div className={styles.wrapper}>
-            <div>
-                <ul className={styles.cardWrap}>
-                    <button
-                        className={styles.arrowButton}
-                        onClick={moveLeft}
-                        style={{ display: selectedIndex === 0 ? 'none' : 'block' }}
+            <ul className={styles.cardWrap}>
+                <button
+                    className={`${styles.arrowButton} ${selectedIndex === 0 ? styles.hidden : ''}`}
+                    onClick={moveLeft}
+                >
+                    <IoIosArrowBack size={30} color="#fff" />
+                </button>
+                {cards.map((cardClass, cardIndex) => (
+                    <motion.li
+                        key={cardClass}
+                        className={`${styles.card} ${styles[cardClass]} ${selectedIndex === cardIndex ? styles.selected : ''}`}
+                        animate={{
+                            top: cardIndex * -CARD_OFFSET,
+                            scale: 1 - cardIndex * SCALE_FACTOR,
+                            zIndex: cards.length - cardIndex,
+                        }}
                     >
-                        <IoIosArrowBack size={30} color="#fff" />
-                    </button>
+                        <div className={styles.cardContent}>
+                            <h2 className={styles.cardContentTitle}>{jobsData[(selectedIndex + cardIndex) % jobsData.length].role}</h2>
+                            <p>{jobsData[(selectedIndex + cardIndex) % jobsData.length].description}</p>
+                        </div>
+                    </motion.li>
+                ))}
+                <button
+                    className={`${styles.arrowButton} ${selectedIndex === jobsData.length - 1 ? styles.hidden : ''}`}
+                    onClick={moveRight}
+                >
+                    <IoIosArrowForward size={30} color="#fff" />
+                </button>
+            </ul>
 
-                    {cards.map((cardClass, cardIndex) => (
-                        <motion.li
-                            key={cardClass}
-                            className={`${styles.card} ${styles[cardClass]} ${selectedIndex === cardIndex ? styles.selected : ''}`}
-                            animate={{
-                                top: cardIndex * -CARD_OFFSET,
-                                scale: 1 - cardIndex * SCALE_FACTOR,
-                                zIndex: cards.length - cardIndex,
-                            }}
-                        >
-                            <div className={styles.cardContent}>
-                                <h2 className={styles.cardContentTitle}>{jobsData[(selectedIndex + cardIndex) % jobsData.length].role}</h2>
-                                <p>{jobsData[(selectedIndex + cardIndex) % jobsData.length].description}</p>
-                            </div>
-                        </motion.li>
-                    ))}
-                    <button
-                        className={styles.arrowButton}
-                        onClick={moveRight}
-                        style={{ display: selectedIndex === jobsData.length - 1 ? 'none' : 'block' }}
-                    >
-                        <IoIosArrowForward size={30} color="#fff" />
-                    </button>
-                </ul>
-            </div>
+            {/* Timeline for desktop */}
             <div className={styles.timeline}>
                 <div className={styles.timelineLine}></div>
                 {jobsData.map((item, index) => (
@@ -88,6 +85,36 @@ const WorksTimeline = () => {
                         </div>
                     </div>
                 ))}
+            </div>
+
+            {/* Timeline for mobile */}
+            <div className={styles.timelineMobile}>
+                <div className={styles.timelineMobileArrows}>
+                    <button
+                        className={`${selectedIndex === 0 ? styles.hidden : styles.arrowMobileLeft}`}
+                        onClick={moveLeft}
+                    >
+                        <IoIosArrowBack size={30} color="#fff" />
+                    </button>
+                    <button
+                        className={`${selectedIndex === jobsData.length - 1 ? styles.hidden : styles.arrowMobileRight}`}
+                        onClick={moveRight}
+                    >
+                        <IoIosArrowForward size={30} color="#fff" />
+                    </button>
+                </div>
+                <div className={styles.timelineMobilePoints}>
+                    {jobsData.map((item, index) => (
+                        <div
+                            key={index}
+                            className={`${styles.timelinePointMobile} ${selectedIndex === index ? styles.active : ''}`}
+                            onClick={() => handleClick(index)}
+                            data-title={item.title}
+                        >
+                            <span className={styles.dateMobile}>{item.date}</span>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );

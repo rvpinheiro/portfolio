@@ -5,13 +5,13 @@
   align-items: center;
   justify-content: center;
   margin-top: 3rem;
-  width: 100%;
+  width: min(90vw, 2500px);
 }
 
 .cardWrap {
   position: relative;
-  width: 900px;
-  height: 520px;
+  width: 50%;
+  height: 400px;
 }
 
 .card {
@@ -30,10 +30,10 @@
   text-align: justify;
   font-size: 1.1rem;
   color: var(--text-white);
-  padding: 3rem;
+  padding: 1.5rem;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
-  max-height: 500px; 
+  max-height: 370px; 
   max-width: 100%; 
   overflow-y: auto; 
 }
@@ -52,7 +52,7 @@
 }
 
 .cardContentTitle {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .card1,
@@ -88,6 +88,10 @@
   justify-content: space-between;
   width: 70%;
   margin-top: 5rem;
+}
+
+.timelineMobile {
+  display: none;
 }
 
 .timelineLine {
@@ -208,4 +212,111 @@
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-bottom: 10px solid var(--text-white);
+}
+
+.arrowMobileContainer {
+  display: none;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.arrowMobileLeft {
+  position: absolute;
+  left: 0;
+}
+
+.arrowMobileRight {
+  position: absolute;
+  right: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .cardWrap {
+    width: 95%;
+    height: 500px;
+  }
+  .cardContent {
+    padding: 1rem;
+    font-size: 1rem;
+    text-align: justify;
+    max-height: 470px;
+  }
+
+  .cardContentTitle {
+    font-size: 1.1rem;
+    margin-bottom: .5rem;
+  }
+
+  .arrowButton {
+    display: none;
+  }
+
+  .arrowMobileContainer {
+    display: flex;
+  }
+  
+}
+@media (max-width: 768px) {
+  .timeline {
+    display: none;
+  }
+
+  .timelineMobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    width: 100%;
+  }
+  
+  .timelineMobileArrows {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  
+  .timelinePointMobile {
+    width: 20px;
+    height: 20px;
+    background-color: var(--text-white);
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .timelinePointMobile .dateMobile {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: .9rem;
+    font-weight: bold;
+    color: var(--text-white);
+    text-align: center;
+  }
+  
+  .timelinePointMobile.active {
+    background-color: var(--text-red);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  }
+ 
+  .timelineMobile {
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .timelineMobilePoints {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 90%;
+  }
 }
