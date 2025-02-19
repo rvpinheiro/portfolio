@@ -5,15 +5,13 @@
     align-items: center;
     gap: 2rem;
     position: relative;
+    width: 90vw;
 }
 
 .timelineContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 1024px) {
