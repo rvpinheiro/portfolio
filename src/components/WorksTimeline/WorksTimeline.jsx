@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import styles from './WorksTimeline.module.css';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
@@ -15,32 +15,38 @@ const WorksTimeline = () => {
     const moveLeft = () => {
         setCards((prevCards) => {
             const newCards = [...prevCards];
-            newCards.unshift(newCards.pop()); // Rotaciona os cartões para a esquerda
+            newCards.unshift(newCards.pop());
             return newCards;
         });
-        setSelectedIndex((prevIndex) => (prevIndex - 1 + jobsData.length) % jobsData.length); // Atualiza o selectedIndex para 1 em 1
+        setSelectedIndex((prevIndex) => (prevIndex - 1 + jobsData.length) % jobsData.length);
     };
 
     const moveRight = () => {
         setCards((prevCards) => {
             const newCards = [...prevCards];
-            newCards.push(newCards.shift()); // Rotaciona os cartões para a direita
+            newCards.push(newCards.shift());
             return newCards;
         });
-        setSelectedIndex((prevIndex) => (prevIndex + 1) % jobsData.length); // Atualiza o selectedIndex para 1 em 1
+        setSelectedIndex((prevIndex) => (prevIndex + 1) % jobsData.length);
     };
 
     const handleClick = (index) => {
-        setSelectedIndex(index); // Atualiza o selectedIndex ao clicar na linha do tempo
+        index > selectedIndex ? moveRight() : index < selectedIndex && moveLeft();
+        setSelectedIndex(index);
     };
 
     return (
         <div className={styles.wrapper}>
             <div>
                 <ul className={styles.cardWrap}>
-                    <button className={styles.arrowButton} onClick={moveLeft}>
+                    <button
+                        className={styles.arrowButton}
+                        onClick={moveLeft}
+                        style={{ display: selectedIndex === 0 ? 'none' : 'block' }}
+                    >
                         <IoIosArrowBack size={30} color="#fff" />
                     </button>
+
                     {cards.map((cardClass, cardIndex) => (
                         <motion.li
                             key={cardClass}
@@ -57,7 +63,11 @@ const WorksTimeline = () => {
                             </div>
                         </motion.li>
                     ))}
-                    <button className={styles.arrowButton} onClick={moveRight}>
+                    <button
+                        className={styles.arrowButton}
+                        onClick={moveRight}
+                        style={{ display: selectedIndex === jobsData.length - 1 ? 'none' : 'block' }}
+                    >
                         <IoIosArrowForward size={30} color="#fff" />
                     </button>
                 </ul>
@@ -69,20 +79,18 @@ const WorksTimeline = () => {
                         key={index}
                         className={`${styles.timelinePoint} ${selectedIndex === index ? styles.active : ''}`}
                         onClick={() => handleClick(index)}
+                        data-title={item.title}
                     >
                         <span className={styles.date}>{item.date}</span>
-                        {selectedIndex === index && (
-                            <div className={styles.popup}>
-                                <div className={styles.arrowUp}></div>
-                                <span>{item.title}</span>
-                            </div>
-                        )}
+                        <div className={styles.popup}>
+                            <div className={styles.arrowUp}></div>
+                            <span>{item.title}</span>
+                        </div>
                     </div>
                 ))}
             </div>
         </div>
     );
 };
-
 
 export default WorksTimeline;
