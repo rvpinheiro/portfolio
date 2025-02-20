@@ -3,7 +3,6 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import styles from './Map.module.css';
 import ContactAddress from '../../components/ContactAddress/ContactAddress';
-import Whatsapp from '../../components/Whatsapp/Whatsapp';
 
 const Map = () => {
     const mapRef = useRef(null);
@@ -31,7 +30,6 @@ const Map = () => {
 
     return <div id="map" className={styles.map}>
         <ContactAddress />
-        <Whatsapp />
     </div>;
 };
 

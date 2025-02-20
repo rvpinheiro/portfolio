@@ -1,12 +1,13 @@
 import React from 'react';
-import { GitHub, Linkedin, Mail, Download } from 'react-feather';
+import { GitHub, Linkedin, Download } from 'react-feather';
+import { FaWhatsapp } from 'react-icons/fa';
 import styles from './SocialIcon.module.css';
 
 const SocialIcon = ({ platform, link, hoverColor, size = 30 }) => {
     const icons = {
         github: GitHub,
         linkedin: Linkedin,
-        mail: Mail,
+        whatsapp: FaWhatsapp,
         download: Download
     };
 
