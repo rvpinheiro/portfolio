@@ -10,7 +10,7 @@ const SCALE_FACTOR = 0.06;
 
 const WorksTimeline = () => {
     const [cards, setCards] = useState(CARDS_NUMBER);
-    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [selectedIndex, setSelectedIndex] = useState(4);
     const touchStartX = useRef(0);
     const touchEndX = useRef(0);
 
@@ -83,7 +83,11 @@ const WorksTimeline = () => {
                     >
                         <div className={styles.cardContent}>
                             <h2 className={styles.cardContentTitle}>{jobsData[(selectedIndex + cardIndex) % jobsData.length].role}</h2>
-                            <p>{jobsData[(selectedIndex + cardIndex) % jobsData.length].description}</p>
+                            <div
+                                dangerouslySetInnerHTML={{
+                                    __html: jobsData[(selectedIndex + cardIndex) % jobsData.length].description,
+                                }}
+                            />
                         </div>
                     </motion.li>
                 ))}

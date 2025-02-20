@@ -51,6 +51,10 @@
   background: rgba(180, 180, 180, 0.8); 
 }
 
+strong {
+  color: var(--text-strong);
+}
+
 .cardContentTitle {
   margin-bottom: 1rem;
 }

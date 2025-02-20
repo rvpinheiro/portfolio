@@ -7,13 +7,13 @@ const projectsData = [
     },
     {
         id: 2,
-        title: "Ageas Simulador Dental",
+        title: "Seguro Dental Web",
         image: "https://res.cloudinary.com/dildxocbx/image/upload/v1738856019/ageasdental_spwtbp.jpg",
         link: "https://www.ageas.pt/particulares/simuladores/dental",
     },
     {
         id: 3,
-        title: "Ageas Simulador Saúde",
+        title: "Seguro Saúde Web",
         image: "https://res.cloudinary.com/dildxocbx/image/upload/v1738856020/ageassaude_fnfcap.jpg",
         link: "https://www.ageas.pt/particulares/simuladores/saude",
     },
