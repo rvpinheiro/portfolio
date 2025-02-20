@@ -10,12 +10,25 @@ const ContactAddress = () => {
     return (
         <div className={styles.adressContainer}>
             <ToastContainer
-                position="top-center"
-                autoClose={3000}
-                hideProgressBar
+                position="bottom-center"
+                autoClose={false}
                 closeOnClick
-                pauseOnHover
                 draggable
+                style={{
+                    fontSize: "1rem",
+                    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+                    maxWidth: "270px",
+                    textAlign: "center",
+                    padding: "10px",
+                }}
+                toastStyle={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    textAlign: "center",
+                    flexWrap: "wrap",
+                    maxWidth: "250px",
+                }}
             />
             <div className={styles.contactInfo}>
                 {contactData.contactInfo.map((item, index) => (
@@ -25,15 +38,17 @@ const ContactAddress = () => {
                 ))}
             </div>
             <div className={styles.socialContainer}>
-                {socialData.socialLinks.map((social, index) => (
-                    <SocialIcon
-                        key={index}
-                        platform={social.platform}
-                        link={social.link}
-                        hoverColor={social.hoverColor}
-                        size={25}
-                    />
-                ))}
+                {socialData.socialLinks
+                    .filter(social => social.platform !== 'mail')
+                    .map((social, index) => (
+                        <SocialIcon
+                            key={index}
+                            platform={social.platform}
+                            link={social.link}
+                            hoverColor={social.hoverColor}
+                            size={25}
+                        />
+                    ))}
             </div>
         </div>
     );

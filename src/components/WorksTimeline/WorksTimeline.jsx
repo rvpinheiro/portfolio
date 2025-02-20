@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './WorksTimeline.module.css';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
@@ -11,6 +11,8 @@ const SCALE_FACTOR = 0.06;
 const WorksTimeline = () => {
     const [cards, setCards] = useState(CARDS_NUMBER);
     const [selectedIndex, setSelectedIndex] = useState(0);
+    const touchStartX = useRef(0);
+    const touchEndX = useRef(0);
 
     const moveLeft = () => {
         setCards((prevCards) => {
@@ -30,6 +32,26 @@ const WorksTimeline = () => {
         setSelectedIndex((prevIndex) => (prevIndex + 1) % jobsData.length);
     };
 
+    const handleTouchStart = (e) => {
+        touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchMove = (e) => {
+        touchEndX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+        const deltaX = touchStartX.current - touchEndX.current;
+
+        if (Math.abs(deltaX) > 50) {
+            if (deltaX > 0) {
+                moveRight();
+            } else {
+                moveLeft();
+            }
+        }
+    };
+
     const handleClick = (index) => {
         index > selectedIndex ? moveRight() : index < selectedIndex && moveLeft();
         setSelectedIndex(index);
@@ -37,7 +59,12 @@ const WorksTimeline = () => {
 
     return (
         <div className={styles.wrapper}>
-            <ul className={styles.cardWrap}>
+            <ul
+                className={styles.cardWrap}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+            >
                 <button
                     className={`${styles.arrowButton} ${selectedIndex === 0 ? styles.hidden : ''}`}
                     onClick={moveLeft}
@@ -88,21 +115,22 @@ const WorksTimeline = () => {
             </div>
 
             {/* Timeline for mobile */}
+            <div className={styles.timelineMobileArrows}>
+                <button
+                    className={`${selectedIndex === 0 ? styles.hidden : styles.arrowMobileLeft}`}
+                    onClick={moveLeft}
+                >
+                    <IoIosArrowBack size={30} color="#fff" />
+                </button>
+                <button
+                    className={`${selectedIndex === jobsData.length - 1 ? styles.hidden : styles.arrowMobileRight}`}
+                    onClick={moveRight}
+                >
+                    <IoIosArrowForward size={30} color="#fff" />
+                </button>
+            </div>
             <div className={styles.timelineMobile}>
-                <div className={styles.timelineMobileArrows}>
-                    <button
-                        className={`${selectedIndex === 0 ? styles.hidden : styles.arrowMobileLeft}`}
-                        onClick={moveLeft}
-                    >
-                        <IoIosArrowBack size={30} color="#fff" />
-                    </button>
-                    <button
-                        className={`${selectedIndex === jobsData.length - 1 ? styles.hidden : styles.arrowMobileRight}`}
-                        onClick={moveRight}
-                    >
-                        <IoIosArrowForward size={30} color="#fff" />
-                    </button>
-                </div>
+                <div className={styles.timelineMobileLine}></div>
                 <div className={styles.timelineMobilePoints}>
                     {jobsData.map((item, index) => (
                         <div

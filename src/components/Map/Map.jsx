@@ -1,4 +1,3 @@
-// src/components/Map/Map.js
 import React, { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -10,7 +9,7 @@ const Map = () => {
     const mapRef = useRef(null);
 
     useEffect(() => {
-        if (mapRef.current) return; // Não inicializa o mapa se já estiver inicializado
+        if (mapRef.current) return;
 
         mapRef.current = L.map('map', {
             center: [41.54931, -8.42677], // Coordenadas do mapa

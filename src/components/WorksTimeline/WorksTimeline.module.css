@@ -104,6 +104,14 @@
   z-index: -1;
 }
 
+.timelineMobileLine {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-white);
+  z-index: -1;
+}
+
 .timelinePoint {
   width: 30px;
   height: 30px;
@@ -220,30 +228,24 @@
   margin-top: 1rem;
 }
 
-.arrowMobileLeft {
-  position: absolute;
-  left: 0;
-}
-
-.arrowMobileRight {
-  position: absolute;
-  right: 0;
-}
-
 .hidden {
+  display: none;
+}
+
+.timelineMobileArrows {
   display: none;
 }
 
 @media (max-width: 1024px) {
   .cardWrap {
     width: 95%;
-    height: 500px;
+    height: 400px;
   }
   .cardContent {
     padding: 1rem;
     font-size: 1rem;
     text-align: justify;
-    max-height: 470px;
+    max-height: 370px;
   }
 
   .cardContentTitle {
@@ -268,20 +270,18 @@
   .timelineMobile {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
     width: 100%;
   }
-  
+
   .timelineMobileArrows {
     display: flex;
-    width: 40%;
-    justify-content: space-between;
+    justify-content: center; 
+    gap: 1rem; 
+    margin: 2rem 0;
+    width: auto; 
     position: relative;
-    margin-bottom: 2rem;
   }
-  
+
   .timelinePointMobile {
     width: 20px;
     height: 20px;
@@ -300,23 +300,17 @@
     font-size: .9rem;
     font-weight: bold;
     color: var(--text-white);
-    text-align: center;
+    text-align: end;
   }
   
   .timelinePointMobile.active {
     background-color: var(--text-red);
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
   }
- 
-  .timelineMobile {
-    flex-direction: column;
-    justify-content: center;
-  }
   
   .timelineMobilePoints {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 90%;
+    justify-content: space-evenly;
+    width: 100%; 
   }
 }
