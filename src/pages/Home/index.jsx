@@ -4,7 +4,6 @@ import HomeTitle from '../../components/HomeTitle/HomeTitle';
 import SocialIcon from '../../components/SocialIcon/SocialIcon';
 import socialData from '../../data/socialData';
 
-
 const Home = () => {
     return (
         <div className={styles.mainContent}>
