@@ -116,16 +116,10 @@ const WorksTimeline = () => {
 
             {/* Timeline for mobile */}
             <div className={styles.timelineMobileArrows}>
-                <button
-                    className={`${selectedIndex === 0 ? styles.hidden : styles.arrowMobileLeft}`}
-                    onClick={moveLeft}
-                >
+                <button className={styles.arrowMobileLeft} onClick={moveLeft}>
                     <IoIosArrowBack size={30} color="#fff" />
                 </button>
-                <button
-                    className={`${selectedIndex === jobsData.length - 1 ? styles.hidden : styles.arrowMobileRight}`}
-                    onClick={moveRight}
-                >
+                <button className={styles.arrowMobileRight} onClick={moveRight}>
                     <IoIosArrowForward size={30} color="#fff" />
                 </button>
             </div>
