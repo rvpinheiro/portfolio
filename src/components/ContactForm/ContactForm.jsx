@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Button from '../Button/Button';
 import styles from './ContactForm.module.css';
 import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
 
-const ContactForm = ({ showToast }) => {
+const ContactForm = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
@@ -13,7 +14,7 @@ const ContactForm = ({ showToast }) => {
         e.preventDefault();
 
         if (!name || !email || !message || !phone) {
-            showToast('Error sending message. Please fill in all fields.', 'error');
+            toast.error('Please fill in all fields before sending.');
             return;
         }
 
@@ -24,14 +25,14 @@ const ContactForm = ({ showToast }) => {
             'uS50A--KdlVt5oGKs'
         )
             .then(() => {
-                showToast('Message sent successfully!', 'success');
+                toast.success('Message sent successfully!');
                 setName('');
                 setEmail('');
                 setPhone('');
                 setMessage('');
             })
             .catch(() => {
-                showToast('Error sending message. Try again later.', 'error');
+                toast.error('Error sending message. Please try again.');
             });
     };
 
