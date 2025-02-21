@@ -1,0 +1,45 @@
+.toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    border-radius: 12px;
+    background-color: var(--bg-gray-dark);
+    color: var(--text-white);
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    width: auto;
+    max-width: 600px;
+    cursor: pointer;
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.5s ease-in-out, visibility 0s 0.5s; 
+}
+
+.toast.visible {
+    opacity: 1; 
+    visibility: visible; 
+    transition: opacity 0.5s ease-in-out, visibility 0s 0s; 
+}
+
+.icon {
+    margin-right: 15px;
+    font-size: 24px;
+}
+
+.toast.success .icon {
+    color: #00FF00; 
+}
+
+.toast.error .icon {
+    color: #FF0000; 
+}
+
+.message {
+    flex-grow: 1;
+}
