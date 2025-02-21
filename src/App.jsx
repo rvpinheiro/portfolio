@@ -3,7 +3,6 @@ import NavMenu from './components/NavMenu/NavMenu';
 import { useState, useEffect } from 'react';
 import { useTransition, animated, config } from '@react-spring/web';
 import { HashLoader } from 'react-spinners';
-
 import Home from './pages/Home';
 import Gallery from './pages/Gallery';
 import About from './pages/About';
