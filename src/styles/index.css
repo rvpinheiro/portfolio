@@ -2,9 +2,9 @@
 @import './variables.css';
 
 @font-face {
-    font-family: 'Gobold-Regular';
-    src: url('/fonts/Gobold-Regular.otf') format('truetype');
-    font-style: normal;
+    font-family: 'Poppins-Bold';
+    src: url('/fonts/Poppins-Bold.ttf') format('truetype');
+    font-style: bold;
 }
 
 @font-face {
@@ -42,9 +42,12 @@
     font-style: normal;
 }
 
-
 body {
     font-family: 'Quicksand-Regular', sans-serif;
     background-color: var(--bg-black);
     color: var(--text-white);
+}
+
+#tsparticles {
+    z-index: -1;
 }

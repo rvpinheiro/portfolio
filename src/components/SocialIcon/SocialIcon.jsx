@@ -1,9 +1,10 @@
 import React from 'react';
 import { GitHub, Linkedin, Download } from 'react-feather';
 import { FaWhatsapp } from 'react-icons/fa';
+import socialData from '../../data/socialData';
 import styles from './SocialIcon.module.css';
 
-const SocialIcon = ({ platform, link, hoverColor, size = 30 }) => {
+const SocialIcon = ({ platforms = [], size = 30 }) => {
     const icons = {
         github: GitHub,
         linkedin: Linkedin,
@@ -11,17 +12,34 @@ const SocialIcon = ({ platform, link, hoverColor, size = 30 }) => {
         download: Download
     };
 
-    const IconComponent = icons[platform];
-
-    if (!IconComponent) return null;
+    const platformsToShow = platforms.length > 0 ? platforms : Object.keys(icons);
 
     return (
-        <a href={link} target="_blank" rel="noopener noreferrer"
-            className={styles.iconContainer} aria-label={platform}>
-            <div className={styles.iconBox} style={{ color: hoverColor }}>
-                <IconComponent size={size} className={styles.icon} />
-            </div>
-        </a>
+        <div className={styles.socialContainer}>
+            {platformsToShow.map((platform, index) => {
+
+                const social = socialData.socialLinks.find(social => social.platform === platform);
+                if (!social) return null;
+
+                const IconComponent = icons[platform];
+                if (!IconComponent) return null;
+
+                return (
+                    <a
+                        key={index}
+                        href={social.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.iconContainer}
+                        aria-label={platform}
+                    >
+                        <div className={styles.iconBox} style={{ color: social.hoverColor }}>
+                            <IconComponent size={size} className={styles.icon} />
+                        </div>
+                    </a>
+                );
+            })}
+        </div>
     );
 };
 

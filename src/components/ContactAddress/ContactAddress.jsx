@@ -15,17 +15,7 @@ const ContactAddress = () => {
                 ))}
             </div>
             <div className={styles.socialContainer}>
-                {socialData.socialLinks
-                    .filter(social => social.platform !== 'mail')
-                    .map((social, index) => (
-                        <SocialIcon
-                            key={index}
-                            platform={social.platform}
-                            link={social.link}
-                            hoverColor={social.hoverColor}
-                            size={25}
-                        />
-                    ))}
+                <SocialIcon size={25} />
             </div>
         </div>
     );

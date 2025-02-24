@@ -13,7 +13,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   const routes = [
-    { key: 'home', label: 'home', component: <Home /> },
+    { key: 'home', label: 'home', component: <Home setActivePage={setActivePage} /> },
     { key: 'about', label: 'about', component: <About /> },
     { key: 'gallery', label: 'gallery', component: <Gallery /> },
     { key: 'contact', label: 'contact', component: <Contact /> },
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="appContainer">
-      <NavMenu routes={routes} activePage={activePage} setActivePage={setActivePage} />
+      <NavMenu routes={routes} setActivePage={setActivePage} />
       {loading ? (
         <div className="spinnerContainer">
           <HashLoader color="#fff" size={60} />

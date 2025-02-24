@@ -1,29 +1,40 @@
 .titleContainer {
-    margin-bottom: 3rem;
-    display: grid;
-    place-items: center;
-    gap: 0.5rem;
-    position: relative;
-    text-align: center;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 2rem;
 }
 
-.name {
-    font-size: clamp(3rem, 10vw, 7rem); 
+.titleContainer p {
     font-family: var(--font-title);
-    color: var(--text-black); 
-    transition: color 0.3s ease-in-out;
-    text-shadow: 
-        1px 1px 0 #fff,  
-        -1px -1px 0 #fff, 
-        1px -1px 0 #fff,  
-        -1px 1px 0 #fff;
-    position: relative;
+    font-size: 4rem;
 }
 
-.role {
-    font-size: clamp(1rem, 3vw, 1.7rem); 
-    font-family: var(--font-title);
-    color: var(--text-white); 
-    transition: color 0.3s ease-in-out;
-    position: relative;
+.highlight {
+    color: var(--text-red);
+    font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+    .titleContainer {
+        margin-bottom: 0;
+    }
+    
+    .titleContainer p {
+        text-align: center;
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .titleContainer p {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .titleContainer p {
+        font-size: 1.5rem;
+    }
 }

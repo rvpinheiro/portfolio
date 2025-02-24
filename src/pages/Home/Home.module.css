@@ -1,44 +1,109 @@
 .homeContainer {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 80vh;
     width: 100vw;
     position: relative;
-    background-image: url('/assets/images/wallpaper.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    border-radius: 50%;
     overflow: hidden;
+    padding: 2rem;
 }
 
-.homeContainer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%); 
-    border-radius: 50%; 
+.contentContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto;
+    gap: 2rem;
+    width: 70%;
+    max-width: 1500px;
+    height: 100%;
+    align-items: center;
+    justify-items: center;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    word-wrap: break-word;
 }
 
 .socialContainer {
     display: flex;
-}
-
-.spinnerContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black; 
-    z-index: 9999;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
+@media (max-width: 1024px) {
+    .contentContainer {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        width: 85%;
+    }
+
+    .textContainer {
+        align-items: center;
+        text-align: center;
+    }
+
+    .socialContainer {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .homeContainer {
+        padding: 1rem;
+    }
+
+    .contentContainer {
+        width: 90%;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 1.5rem;
+    }
+
+    .textContainer {
+        align-items: center;
+        text-align: center;
+    }
+
+    .socialContainer {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .profilePicture {
+        width: 80%; /* Ajusta o tamanho da imagem para dispositivos menores */
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .homeContainer {
+        height: auto;
+        padding: 1rem;
+    }
+
+    .textContainer {
+        gap: 1rem;
+        font-size: 1.2rem; /* Diminui o tamanho da fonte */
+    }
+
+    .socialContainer {
+        gap: 0.5rem;
+    }
+
+    .profilePicture {
+        width: 100%; /* Faz a imagem se ajustar ao tamanho do container */
+        height: auto;
+    }
+
+    .button {
+        font-size: 1.2rem; /* Ajuste de tamanho para botões em dispositivos pequenos */
+        padding: 0.5rem 1rem;
+    }
+}

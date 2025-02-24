@@ -1,6 +1,7 @@
 const homeData = {
     bio: {
-        name: "Rui Pinheiro",
+        greeting: "Hi,",
+        name: "I'm Rui.",
         role: "Frontend Developer"
     },
 };

@@ -5,8 +5,11 @@ import styles from './HomeTitle.module.css'
 const HomeTitle = () => {
     return (
         <div className={styles.titleContainer}>
-            <h1 className={styles.name}>{homeData.bio.name}</h1>
-            <h2 className={styles.role}>{homeData.bio.role}</h2>
+            <p className={styles.name}>{homeData.bio.greeting}</p>
+            <p className={styles.name}>
+                I'm <span className={styles.highlight}>{homeData.bio.name.split(" ")[1]}</span>
+            </p>
+            <p className={styles.role}>{homeData.bio.role}</p>
         </div>
     );
 };

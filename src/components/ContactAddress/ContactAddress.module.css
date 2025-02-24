@@ -33,11 +33,6 @@
     margin: 0;
 }
 
-.socialContainer {
-    display: flex;
-    justify-content: center;
-}
-
 @media (max-width: 1024px) {
     .adressContainer {
         width: 35%; 
