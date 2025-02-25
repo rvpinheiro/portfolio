@@ -28,10 +28,17 @@ function App() {
     exitBeforeEnter: true,
   });
 
+  const loaderTransition = useTransition(loading, {
+    from: { opacity: 1 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    config: { duration: 500 },
+  });
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -39,21 +46,24 @@ function App() {
   return (
     <div className="appContainer">
       <NavMenu routes={routes} setActivePage={setActivePage} />
-      {loading ? (
-        <div className="spinnerContainer">
-          <HashLoader color="#fff" size={60} />
-        </div>
-      ) : (
-        <div className="mainContent">
-          {transitions((style, item) => {
-            const page = routes.find(route => route.key === item);
-            return page ? (
-              <animated.div style={style}>
-                {page.component}
-              </animated.div>
-            ) : null;
-          })}
-        </div>
+
+      {loaderTransition((style, item) =>
+        item ? (
+          <animated.div style={style} className="spinnerContainer">
+            <HashLoader color="#fff" size={60} />
+          </animated.div>
+        ) : (
+          <div className="mainContent">
+            {transitions((style, item) => {
+              const page = routes.find(route => route.key === item);
+              return page ? (
+                <animated.div style={style}>
+                  {page.component}
+                </animated.div>
+              ) : null;
+            })}
+          </div>
+        )
       )}
     </div>
   );
