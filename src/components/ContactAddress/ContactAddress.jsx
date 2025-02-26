@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './ContactAddress.module.css';
 import SocialIcon from '../../components/SocialIcon/SocialIcon';
-import socialData from '../../data/socialData';
 import contactData from '../../data/contactData';
 
 const ContactAddress = () => {

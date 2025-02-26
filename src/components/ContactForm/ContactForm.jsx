@@ -1,42 +1,79 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Button from '../Button/Button';
 import styles from './ContactForm.module.css';
 import emailjs from '@emailjs/browser';
 import Toast from '../Toast/Toast';
 
 const ContactForm = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [message, setMessage] = useState('');
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+    });
     const [toastMessage, setToastMessage] = useState('');
     const [toastType, setToastType] = useState('');
 
-    const showToast = (msg, type) => {
+    const showToast = useCallback((msg, type) => {
         setToastMessage(msg);
         setToastType(type);
+    }, []);
+
+    const validateForm = () => {
+        const { name, email, phone, message } = formData;
+
+        const validations = [
+            { isValid: name.trim(), message: 'All fields are required.' },
+            { isValid: email.trim(), message: 'All fields are required.' },
+            { isValid: phone.trim(), message: 'All fields are required.' },
+            { isValid: message.trim(), message: 'All fields are required.' },
+        ];
+
+        const isAnyFieldEmpty = validations.some(validation => !validation.isValid);
+        if (isAnyFieldEmpty) {
+            showToast('All fields are required.', 'error');
+            return false;
+        }
+
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+            showToast('Please enter a valid email address.', 'error');
+            return false;
+        }
+
+        const phoneRegex = /^\+?\d{9,15}$/;
+        if (!phoneRegex.test(phone)) {
+            showToast('Please enter a valid phone number.', 'error');
+            return false;
+        }
+
+        return true;
+    };
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const sendEmail = (e) => {
         e.preventDefault();
+        if (!validateForm()) return;
 
-        if (!name || !email || !message || !phone) {
-            showToast('Please fill in all fields before sending.', 'error');
-            return;
-        }
+        const templateParams = {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            message: formData.message
+        };
 
-        emailjs.sendForm(
+        emailjs.send(
             'service_wrvybvc',
             'template_0uxqqog',
-            e.target,
+            templateParams,
             'uS50A--KdlVt5oGKs'
         )
             .then(() => {
                 showToast('Message sent successfully!', 'success');
-                setName('');
-                setEmail('');
-                setPhone('');
-                setMessage('');
+                setFormData({ name: '', email: '', phone: '', message: '' });
             })
             .catch(() => {
                 showToast('Error sending message. Please try again.', 'error');
@@ -54,20 +91,18 @@ const ContactForm = () => {
                         <input
                             type="text"
                             name="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            value={formData.name}
+                            onChange={handleChange}
                             placeholder="Full Name"
-                            required
                         />
                     </div>
                     <div className={styles.formGroup}>
                         <input
-                            type="email"
+                            type="text"
                             name="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={formData.email}
+                            onChange={handleChange}
                             placeholder="Email"
-                            required
                         />
                     </div>
                 </div>
@@ -76,20 +111,18 @@ const ContactForm = () => {
                         <input
                             type="tel"
                             name="phone"
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
+                            value={formData.phone}
+                            onChange={handleChange}
                             placeholder="Phone"
-                            required
                         />
                     </div>
                 </div>
                 <div className={styles.formGroup}>
                     <textarea
                         name="message"
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
+                        value={formData.message}
+                        onChange={handleChange}
                         placeholder="Message"
-                        required
                     ></textarea>
                 </div>
                 <Button text="Send" styleType="secondary" size="medium" type="submit" />
