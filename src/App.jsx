@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Gallery from './pages/Gallery';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [activePage, setActivePage] = useState('home');
@@ -62,6 +63,7 @@ function App() {
                 </animated.div>
               ) : null;
             })}
+            <Analytics />
           </div>
         )
       )}
